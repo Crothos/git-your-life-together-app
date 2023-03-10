@@ -20,6 +20,7 @@ const typeDefs = gql`
     _id: ID
     title: String!
     description: String!
+    completed: Boolean
   }
 
   type Auth {
@@ -30,8 +31,8 @@ const typeDefs = gql`
   type Query {
     users: [User]
     user(username: String!): User
-    thoughts(username: String): [Thought]
-    thought(thoughtId: ID!): Thought
+    project(username: String): [Project]
+    project(projectId: ID!): [Step]
 
   }
 
