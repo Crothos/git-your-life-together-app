@@ -35,8 +35,14 @@
         padding-right: 30px;
     }
 
+    .btn-delete {
+        background-color: rgb(242, 50, 66);
+        color: white !important;
+    }
+
     .btn-main:hover,
-    .btn-outline:hover {
+    .btn-outline:hover,
+    .btn-delete:hover {
         background-color: #21E1E1;
         color: white !important;
     }
@@ -55,31 +61,44 @@
             </a>
 
             <ul class="nav justify-content-end">
-                <!-- <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">My Projects</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Ask Chat GPT</a>
-                    </li> -->
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">My Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Ask Chat GPT</a>
+                </li>
                 <button class="btn btn-outline me-2" type="button">Log In</button>
                 <button class="btn btn-main" type="button">Sign Up</button>
             </ul>
         </div>
     </nav>
 
-    <div class="container">
-        <div class="row m-5">
-            <div class="col-md-6 d-flex flex-wrap justify-content-center align-content-center">
-                <div>
-                    <h3 class="animate__hinge"><strong>Git your life together!</strong></h3>
-                    <h5>For when you need help getting started</h5>
-                    <button class="btn btn-main mt-4" type="button">Sign Up Today</button>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <img src="illustration1.png" height="600px" class="animate__animated animate__fadeIn">
-            </div>
+    <div class="container" style="background-color: white;height: 700px">
+        <div class="row p-5">
+            <h2>Projects</h2>
         </div>
+
+        <table class="table align-middle m-auto" style="width: 800px">
+
+            <tbody>
+                <tr>
+                    <th scope="row">Example Project</th>
+
+                    <td><button class="btn btn-outline">Edit</button></td>
+                    <td><button class="btn btn-delete">Delete</button></td>
+                </tr>
+                <tr>
+
+
+                </tr>
+                <tr>
+
+
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
     </div>
 
 </body>
