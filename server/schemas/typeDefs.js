@@ -34,7 +34,7 @@ const typeDefs = gql`
     user(username: String!): User
     thoughts(username: String): [Thought]
     thought(thoughtId: ID!): Thought
-    me: User
+
   }
 
   type Mutation {
@@ -48,3 +48,4 @@ const typeDefs = gql`
 `;
 
 module.exports = typeDefs;
+
