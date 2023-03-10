@@ -69,7 +69,7 @@ function App() {
                 element={<Profile />}
               />
               <Route 
-                path="/thoughts/:thoughtId" 
+                path="/thoughts/:thoughtId"
                 element={<SingleThought />}
               />
             </Routes>
