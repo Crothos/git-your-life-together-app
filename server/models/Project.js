@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-//const dateFormat = require('../utils/dateFormat');
+const dateFormat = require('../utils/dateFormat');
 
 const projectSchema = new Schema({
     title:{
@@ -21,6 +21,12 @@ const projectSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Step'
     }],
+
+    createdAt: {
+        type: Date,
+        default: Date.now,
+        get: (timestamp) => dateFormat(timestamp),
+      },
 });
 
 const Project = model('Project', projectSchema);

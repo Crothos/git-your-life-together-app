@@ -18,6 +18,10 @@ const stepSchema = new Schema({
         trim: true
     },
 
+    Completed:{
+        type: Boolean,
+    }
+
 
 });
 
