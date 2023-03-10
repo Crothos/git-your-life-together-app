@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ChatGPT Integration Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/@openai/chat-beta"></script>
+  </head>
+  <body>
+    <h1>Welcome to ChatGPT Integration Example</h1>
+    <div id="chat-container"></div>
+    <script>
+      const chat = new OpenAIChat({
+        container: document.querySelector("#chat-container"),
+        prompt: "Hello, how can I help you today?",
+        apiKey: "YOUR_API_KEY_HERE",
+        engine: "davinci",
+        placeholder: "Type your message here...",
+        // Optional: Customize the appearance of the chat widget
+        chatTitle: "ChatGPT Integration Example",
+        backgroundColor: "#f2f2f2",
+        headerColor: "#333",
+        headerTextColor: "#fff",
+        bubbleBackgroundColor: "#ddd",
+        bubbleTextColor: "#333",
+        userInputColor: "#333",
+        userInputTextColor: "#fff",
+      });
+    </script>
+  </body>
+</html>
