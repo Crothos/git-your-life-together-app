@@ -1,7 +1,8 @@
 const { Schema, model } = require('mongoose');
+
 //const dateFormat = require('../utils/dateFormat');
 
-const projectSchema = new Schema({
+const stepSchema = new Schema({
     title:{
         type: String,
         required: 'You must have a title',
@@ -13,16 +14,13 @@ const projectSchema = new Schema({
     description:{
         required: 'You must have a description',
         minlength: 1,
-        maxlength: 70,
+        maxlength: 500,
         trim: true
     },
 
-    steps:[{
-        type: Schema.Types.ObjectId,
-        ref: 'Step'
-    }],
+
 });
 
-const Project = model('Project', projectSchema);
+const Step = model('Step', stepSchema);
 
-module.exports = Project;
+module.exports = Step;
