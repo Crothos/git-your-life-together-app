@@ -1,7 +1,11 @@
 const mongoose = require('mongoose');
 
 mongoose.connect(
-  process.env.MONGODB_URI || 'mongodb+srv://crothos:AngryCuddle5@cluster0.yimk3aq.mongodb.net/programming-thoughts',
+
+  process.env.MONGODB_URI || 'mongodb+srv://',
+
+  process.env.MONGODB_URI || 'mongodb+srv://',
+
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
