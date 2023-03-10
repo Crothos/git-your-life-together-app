@@ -1,18 +1,23 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Thought } = require('../models');
+const Project = require('../models/Project');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-    users: async () => {
-      return User.find().populate('thoughts');
-    },
+    //I don't think we'll need generic user find
+    // users: async () => {
+    //   return User.find().populate('projects');
+    // },
     user: async (parent, { username }) => {
-      return User.findOne({ username }).populate('thoughts');
+      return User.findOne({ username }).populate('projects');
     },
-    thoughts: async (parent, { username }) => {
+    projectSteps: async (parent, {stepId} ) => {
+      return User.findOne({ stepId }).populate('steps');
+    },
+    userProjects: async (parent, { username }) => {
       const params = username ? { username } : {};
-      return Thought.find(params).sort({ createdAt: -1 });
+      return Project.find(params).sort({ createdAt: -1 });
     },
     thought: async (parent, { thoughtId }) => {
       return Thought.findOne({ _id: thoughtId });
