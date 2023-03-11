@@ -25,10 +25,11 @@ const projectSeeds = require('./projectSeeds.json');
 
 db.once('open', async () => {
   try {
-    await User.deleteMany({});
+    await Project.deleteMany({});
 
-    await User.create(userSeeds);
+    await Project.create(projectseeds);
 
+//I think below "thoughts:_id needs to be changed -Michael from pull request edit. I'm leaving because I saw seeding work and am a bit confused
     for (let i = 0; i < projectSeeds.length; i++) {
     //    IM CONFUSED ABOUT THIS PART
     const { _id, projectAuthor } = await Project.create(projectSeeds[i]);
@@ -41,6 +42,7 @@ db.once('open', async () => {
         }
       );
     }
+
   } catch (err) {
     console.error(err);
     process.exit(1);

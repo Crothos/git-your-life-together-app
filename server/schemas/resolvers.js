@@ -11,6 +11,7 @@ const resolvers = {
     // Camelias new code
     project: async(parent, { projectId }) => {
       return Project.findOne({ _id: projectId })
+
     },
 
   },
@@ -40,7 +41,6 @@ const resolvers = {
       return { token, user };
     },
 
-// camelias code
 addProject: async (parent, { title, description, projectAuthor }) => {
   const project = await Project.create({
     title, 
@@ -75,4 +75,5 @@ addProject: async (parent, { title, description, projectAuthor }) => {
 };
 
 module.exports = resolvers;
+
 
