@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 
 mongoose.connect(
 
-  process.env.MONGODB_URI || 'mongodb+srv://',
+  process.env.MONGODB_URI || 'mongodb+srv://michael-user:1234@classactivitescluster0.keplkus.mongodb.net/shelterDB',
 
-  process.env.MONGODB_URI || 'mongodb+srv://',
+
 
   {
     useNewUrlParser: true,

@@ -7,19 +7,20 @@ const projectSchema = new Schema({
         required: 'You must have a title',
         minlength: 1,
         maxlength: 70,
-        trim: true
+        trim: true,
     },
 
     description:{
+        type: String,
         required: 'You must have a description',
         minlength: 1,
         maxlength: 70,
-        trim: true
+        trim: true,
     },
 
     steps:[{
         type: Schema.Types.ObjectId,
-        ref: 'Step'
+        ref: 'Step',
     }],
 
     createdAt: {
