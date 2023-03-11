@@ -1,12 +1,12 @@
 import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+//import { useLocation, useNavigate } from 'react-router-dom';
 
 const AskChatGPT = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
+  //const location = useLocation();
+  //const navigate = useNavigate();
   return (
     <div>
-    <h1>Welcome to ChatGPT Integration Example</h1>
+    <h1>Need help coming up with steps? Ask ChatGPT!</h1>
     <div id="chat-container"></div>
     </div>
   );
