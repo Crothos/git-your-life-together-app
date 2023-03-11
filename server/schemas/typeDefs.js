@@ -35,20 +35,20 @@ const typeDefs = gql`
 //   }
 
 
-//   type Project {
-//     _id: ID
-//     title: String!
-//     description: String!
-//     steps: [Step]!
-//     createdAt: Date
-//   }
+  type Project {
+    _id: ID
+    title: String!
+    description: String!
+    steps: [Step]!
+    createdAt: Date
+  }
 
-//   type Step {
-//     _id: ID
-//     title: String!
-//     description: String!
-//     completed: Boolean
-//   }
+  type Step {
+    _id: ID
+    title: String!
+    description: String!
+    completed: Boolean
+  }
 
 
 //   type Auth {

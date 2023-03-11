@@ -12,6 +12,7 @@ const stepSchema = new Schema({
     },
 
     description:{
+        type: String,
         required: 'You must have a description',
         minlength: 1,
         maxlength: 500,

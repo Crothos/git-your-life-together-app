@@ -8,6 +8,14 @@ const resolvers = {
     users: async () => {
       return User.find()
     },
+    
+    // projectSteps: async (parent, {stepId} ) => {
+    //   return User.findOne({ stepId }).populate('steps');
+    // },
+
+    // user: async (parent, { username }) => {
+    //   return User.findOne({ username }).populate('projects');
+    // },
 
   },
 
