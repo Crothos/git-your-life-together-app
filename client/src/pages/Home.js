@@ -11,7 +11,7 @@ const Home = () => {
   //   const thoughts = data?.thoughts || [];
 
   return (
-    <main>
+    <div className="container-fluid">
 
       <nav className="navbar">
         <div className="container-fluid">
@@ -46,7 +46,7 @@ const Home = () => {
         </div>
       </div>
 
-    </main>
+    </div>
   );
 };
 
