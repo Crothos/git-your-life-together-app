@@ -4,24 +4,28 @@ const dateFormat = require('../utils/dateFormat');
 const projectSchema = new Schema({
     title:{
         type: String,
-        required: 'You must have a title',
+        required: true,
         minlength: 1,
         maxlength: 70,
         trim: true,
     },
-
     description:{
         type: String,
-        required: 'You must have a description',
+        required: true,
         minlength: 1,
-        maxlength: 70,
+        maxlength: 280,
         trim: true,
     },
-
-    steps:[{
-        type: Schema.Types.ObjectId,
-        ref: 'Step',
-    }],
+    projectAuthor:{
+        type: String, 
+        required: true,
+        trim: true,
+    },
+    // commented out for now
+    // steps:[{
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'Step',
+    // }],
 
     createdAt: {
         type: Date,
