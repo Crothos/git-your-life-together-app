@@ -41,6 +41,39 @@ const resolvers = {
       return { token, user };
     },
 
+
+// camelias code
+// with context/auth when we get there
+        addProject: async (parent, { title, description }, context) => {
+  if (context.user) 
+  { const project = await Project.create({
+     title, 
+     description,
+     projectAuthor: context.user.username,
+   });
+
+   await User.findOneAndUpdate(
+     {_Id: context.user._id},
+     { $addToSet:  {projects: project._id }}
+   );
+   return project;
+ }
+ throw new AuthenticationError('You need to be logged in!');
+}
+
+
+// 
+// addProject: async (parent, { title, description, projectAuthor }) => {
+//   const project = await Project.create({
+//     title, 
+//     description,
+//     projectAuthor,
+//   });
+//  return project;
+// }
+
+
+
 addProject: async (parent, { title, description, projectAuthor }) => {
   const project = await Project.create({
     title, 
@@ -96,6 +129,7 @@ updateProject: async (parent, { ProjectId}, {title}, {description }) => {
     { new: true }
   );
 }
+
 
 // with context/auth when we get there
 //     addProject: async (parent, { title, despcription }, context) => {
