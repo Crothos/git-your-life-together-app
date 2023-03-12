@@ -1,6 +1,9 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 import { Link } from 'react-router-dom';
+import logo from '../assets/GYLTlogo.png';
+import happyGuy from '../assets/illustration1.png';
+
 // import ThoughtList from '../components/ThoughtList';
 // import ThoughtForm from '../components/ThoughtForm';
 
@@ -16,7 +19,7 @@ const Home = () => {
       <nav className="navbar">
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
-            <img src="GYLTlogo.png" alt="Logo" height="50" className="d-inline-block" />
+            <img src={logo} alt="Logo" height="50" className="d-inline-block" />
           </a>
           <ul className="nav justify-content-end">
             {/* <li className="nav-item">
@@ -41,7 +44,7 @@ const Home = () => {
             </div>
           </div>
           <div className="col-md-6">
-            <img src="illustration1.png" height="600px" className="animate__animated animate__fadeIn" />
+            <img src={happyGuy} height="600px" className="animate__animated animate__fadeIn" />
           </div>
         </div>
       </div>
