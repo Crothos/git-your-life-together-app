@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import logo from '../../assets/GYLTlogo.png';
 const Navbar = () => {
     return (
 
         <nav className="navbar">
             <div className="container-fluid">
                 <a className="navbar-brand" href="#">
-                    <img src="GYLTlogo.png" alt="Logo" height="50" className="d-inline-block" />
+                    <img src={logo} alt="Logo" height="50" className="d-inline-block" />
                 </a>
 
                 <ul className="nav justify-content-end">
