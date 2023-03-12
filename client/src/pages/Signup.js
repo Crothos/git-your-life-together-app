@@ -48,7 +48,7 @@ console.log(data)
             {data ? (
               <p>
                 Success! You may now head{' '}
-                <Link to="/">back to the homepage.</Link>
+                <Link to="/landing">back to your landing page.</Link>
               </p>
             ) : (
               <form onSubmit={handleFormSubmit}>

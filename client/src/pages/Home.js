@@ -40,7 +40,7 @@ const Home = () => {
             <div>
               <h3 className="animate__hinge"><strong>Git your life together!</strong></h3>
               <h5>For when you need help getting started</h5>
-              <button className="btn btn-main mt-4" type="button">Sign Up Today</button>
+              <Link to="/signup"><button className="btn btn-main mt-4" type="button">Sign Up Today</button></Link>
             </div>
           </div>
           <div className="col-md-6">

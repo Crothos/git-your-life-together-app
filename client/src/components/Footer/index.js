@@ -9,6 +9,9 @@ const Footer = () => {
         <footer>
             <div class="container">
                 <div class="row justify-content-center">
+                <div class="col-sm-4 col-md-2 item">
+                        <p class="copyright">© 2023, Developed By:</p>
+                    </div>
                     <div class="col-sm-4 col-md-2 item">
                         <h3>Jessica Ortega </h3>
                         <ul>
@@ -44,9 +47,7 @@ const Footer = () => {
                             <li><a href="#">Email</a></li>
                         </ul>
                     </div>
-                    <div class="col-sm-4 col-md-2 item">
-                        <p class="copyright">Codebusters © 2023</p>
-                    </div>
+
                 </div>
             </div>   
     </footer>
