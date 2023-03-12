@@ -27,7 +27,7 @@ db.once('open', async () => {
   try {
     await Project.deleteMany({});
 
-    await Project.create(projectseeds);
+    await Project.create(projectSeeds);
 
 //I think below "thoughts:_id needs to be changed -Michael from pull request edit. I'm leaving because I saw seeding work and am a bit confused
     for (let i = 0; i < projectSeeds.length; i++) {

@@ -1,5 +1,6 @@
 [
-    { "title": "project title",
+    { "id": "1",
+      "title": "project title",
       "description": "Everyone knows that debugging is twice as hard as writing a program ",
       "projectAuthor": "Brian Kernighan"
     },
