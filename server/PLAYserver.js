@@ -25,5 +25,5 @@ app.post("/chat", async (req, res) => {
 
 const port = 8080;
 app.listen(port, () => {
-  console.log(`I can hear you on port ${port}`);
+  console.log(`I can heeeeeaaaar you on port ${port}`);
 });
