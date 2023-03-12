@@ -32,7 +32,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addProject (title: String!, description: String!, projectAuthor: String!): Project
     removeProject(projectId: ID!): Project
-    # updateProject(id: ID!, title: String!, description: String!): Project
+    updateProject(projectId: ID!, title: String!, description: String!): Project
     # removeStep(projectId: ID!, step: String!): Project
   }`
 ;
