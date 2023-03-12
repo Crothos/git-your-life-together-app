@@ -1,11 +1,14 @@
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
+require("dotenv").config();
+
+console.log(process.env);
 
 const { Configuration, OpenAIApi } = require("openai");
 
 const configuration = new Configuration({
-  apiKey: "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",
+  apiKey: process.env.OPENAI_API_KEY,
 });
 const openai = new OpenAIApi(configuration);
 
@@ -23,7 +26,7 @@ app.post("/chat", async (req, res) => {
   res.send(completion.data.choices[0].text);
 });
 
-const port = 8080;
+const port = 3000;
 app.listen(port, () => {
-  console.log(`I can heeeeeaaaar you on port ${port}`);
+  console.log(`I can heeeeeaaaar yoooooouuuuu on port ${port}`);
 });
