@@ -6,7 +6,7 @@ const { signToken } = require('../utils/auth');
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find()
+      return User.find().populate('projects')
     },
     // Camelias new code
     project: async(parent, { projectId }) => {
@@ -62,35 +62,56 @@ const resolvers = {
 },
 
 
+
+
+
+
+
 // add context to this
-removeProject: async (parent, { ProjectId },{user}) => {
- // if (context.user) {
+removeProject: async (parent, { projectId }, context) => {
+ if (context.user) {
         const project = await Project.findOneAndDelete({
-          _id: ProjectId,
-        //  projectAuthor: context.user.username,
+          _id: projectId,
+         projectAuthor: context.user.usrname,
         });
     
-        // await User.findOneAndUpdate(
-        //   { _id: context.user._id },
-        //   { $pull: { projects: project._id } }
-        // );
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { projects: projectId } },
+       
+        );
     
         return project;
-    //  }
-     // throw new AuthenticationError('You need to be logged in!');
+      }
+      throw new AuthenticationError('You need to be logged in!');
     },
 
 //not fully working yet
-updateProject: async (parent, { ProjectId}, {title}, {description }) => {
-  // Find and update the matching class using the destructured args
-  return await Project.findOneAndUpdate(
-    { ProjectId }, 
-    { title },
-    { description },
-    // Return the newly updated object instead of the original
-    { new: true }
-  );
-}
+// updateProject: async (parent, { ProjectId}, {title}, {description }) => {
+//   // Find and update the matching class using the destructured args
+//   return await Project.findOneAndUpdate(
+//     { ProjectId }, 
+//     { title },
+//     { description },
+//     // Return the newly updated object instead of the original
+//     { new: true }
+//   );
+// }
+
+
+
+
+
+
+
+//  in theory how to remove a step
+// removeStep: async (parent, {projectId, step}) =>{
+//   return Project.findOneAndUpdate(
+//     {_id: projectId},
+//     { $pull: {steps: step} },
+//     { new: true}
+//   );
+//   },
 
 
   },
