@@ -42,8 +42,7 @@ const resolvers = {
     },
 
 
-// camelias code
-// with context/auth when we get there
+// working now
         addProject: async (parent, { title, description }, context) => {
   if (context.user) 
   { const project = await Project.create({
@@ -62,17 +61,12 @@ const resolvers = {
 },
 
 
-
-
-
-
-
-// add context to this
+// working now
 removeProject: async (parent, { projectId }, context) => {
  if (context.user) {
         const project = await Project.findOneAndDelete({
           _id: projectId,
-         projectAuthor: context.user.usrname,
+         projectAuthor: context.user.username,
         });
     
         await User.findOneAndUpdate(
@@ -86,19 +80,23 @@ removeProject: async (parent, { projectId }, context) => {
       throw new AuthenticationError('You need to be logged in!');
     },
 
-//not fully working yet
-// updateProject: async (parent, { ProjectId}, {title}, {description }) => {
-//   // Find and update the matching class using the destructured args
-//   return await Project.findOneAndUpdate(
-//     { ProjectId }, 
-//     { title },
-//     { description },
-//     // Return the newly updated object instead of the original
-//     { new: true }
-//   );
-// }
 
-
+// working with context/auth
+updateProject: async (parent, {projectId, title, description}, context) => {
+  if (context.user) {
+    const project = await Project.findByIdAndUpdate( projectId, { 
+      title: title, 
+      description: description,
+    });
+    await User.findOneAndUpdate(
+      { _id: context.user._id },
+      { $set: { title, description } },
+      {new: true}
+    );
+    return project;
+  }
+  throw new AuthenticationError('You need to be logged in!');
+},
 
 
 
