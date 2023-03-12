@@ -21,11 +21,26 @@ const projectSchema = new Schema({
         required: true,
         trim: true,
     },
-    // commented out for now
-    // steps:[{
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'Step',
-    // }],
+    steps: [
+        {
+            stepText: {
+                type: String,
+                required: true,
+                minlength: 1,
+                maxlength: 280, 
+            },
+            completed: {
+                type: String,
+                required: true,
+            },
+            createdAt: {
+                type: Date,
+                default: Date.now,
+                get: (timestamp) => dateFormat(timestamp),
+              },
+        },
+    ],
+
 
     createdAt: {
         type: Date,

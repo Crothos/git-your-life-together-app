@@ -20,7 +20,7 @@ const stepSchema = new Schema({
     },
 
     Completed:{
-        type: Boolean,
+        type: String,
     }
 
 

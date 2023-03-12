@@ -14,9 +14,15 @@ const typeDefs = gql`
     title: String
     description: String
     projectAuthor: String
-    # we would add step here once we get that up and running as well steps:[Step]
+    steps: [Step]!
   }
 
+type Step {
+  _id: ID
+  stepText: String
+  completed: String
+  createdAt: String
+}
 
   type Auth {
     token: ID!
@@ -33,7 +39,7 @@ const typeDefs = gql`
     addProject (title: String!, description: String!, projectAuthor: String!): Project
     removeProject(projectId: ID!): Project
     updateProject(projectId: ID!, title: String!, description: String!): Project
-    # removeStep(projectId: ID!, step: String!): Project
+    addStep (projectId: ID!, stepText: String!, completed: String!): Project
   }`
 ;
 
