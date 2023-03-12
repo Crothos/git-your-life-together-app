@@ -59,31 +59,10 @@ const resolvers = {
    return project;
  }
  throw new AuthenticationError('You need to be logged in!');
-}
-
-
-// 
-// addProject: async (parent, { title, description, projectAuthor }) => {
-//   const project = await Project.create({
-//     title, 
-//     description,
-//     projectAuthor,
-//   });
-//  return project;
-// }
-
-
-
-addProject: async (parent, { title, description, projectAuthor }) => {
-  const project = await Project.create({
-    title, 
-    description,
-    projectAuthor,
-  });
-
-  return project;
 },
 
+
+// add context to this
 removeProject: async (parent, { ProjectId },{user}) => {
  // if (context.user) {
         const project = await Project.findOneAndDelete({
@@ -101,24 +80,7 @@ removeProject: async (parent, { ProjectId },{user}) => {
      // throw new AuthenticationError('You need to be logged in!');
     },
 
-// with context/auth when we get there
-// removeProject: async (parent, { ProjectId }, context) => {
-//   if (context.user) {
-//     const project = await Project.findOneAndDelete({
-//       _id: ProjectId,
-//       peojectAuthor: context.user.username,
-//     });
-
-//     await User.findOneAndUpdate(
-//       { _id: context.user._id },
-//       { $pull: { projects: project._id } }
-//     );
-
-//     return project;
-//   }
-//   throw new AuthenticationError('You need to be logged in!');
-// },
-
+//not fully working yet
 updateProject: async (parent, { ProjectId}, {title}, {description }) => {
   // Find and update the matching class using the destructured args
   return await Project.findOneAndUpdate(
@@ -131,27 +93,22 @@ updateProject: async (parent, { ProjectId}, {title}, {description }) => {
 }
 
 
-// with context/auth when we get there
-//     addProject: async (parent, { title, despcription }, context) => {
-//   if (context.user) 
-//   { const project = await Project.create({
-//      title, 
-//      despcription,
-//      projectAuthor: context.user.username,
-//    });
-
-//    await User.findOneAndUpdate(
-//      {_Id: context.user._id},
-//      { $addToSet:  {projects: project._id }}
-//    );
-//    return project;
-//  }
-//  throw new AuthenticationError('You need to be logged in!');
-// }
-
   },
 };
 
 module.exports = resolvers;
 
 
+
+
+
+
+// without context addProject
+// addProject: async (parent, { title, description, projectAuthor }) => {
+//   const project = await Project.create({
+//     title, 
+//     description,
+//     projectAuthor,
+//   });
+//  return project;
+// }
