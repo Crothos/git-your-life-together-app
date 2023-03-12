@@ -11,6 +11,7 @@ const resolvers = {
     // Camelias new code
     project: async(parent, { projectId }) => {
       return Project.findOne({ _id: projectId })
+
     },
 
   },
@@ -39,6 +40,7 @@ const resolvers = {
 
       return { token, user };
     },
+
 
 // camelias code
 // with context/auth when we get there
@@ -72,6 +74,63 @@ const resolvers = {
 
 
 
+addProject: async (parent, { title, description, projectAuthor }) => {
+  const project = await Project.create({
+    title, 
+    description,
+    projectAuthor,
+  });
+
+  return project;
+},
+
+removeProject: async (parent, { ProjectId },{user}) => {
+ // if (context.user) {
+        const project = await Project.findOneAndDelete({
+          _id: ProjectId,
+        //  projectAuthor: context.user.username,
+        });
+    
+        // await User.findOneAndUpdate(
+        //   { _id: context.user._id },
+        //   { $pull: { projects: project._id } }
+        // );
+    
+        return project;
+    //  }
+     // throw new AuthenticationError('You need to be logged in!');
+    },
+
+// with context/auth when we get there
+// removeProject: async (parent, { ProjectId }, context) => {
+//   if (context.user) {
+//     const project = await Project.findOneAndDelete({
+//       _id: ProjectId,
+//       peojectAuthor: context.user.username,
+//     });
+
+//     await User.findOneAndUpdate(
+//       { _id: context.user._id },
+//       { $pull: { projects: project._id } }
+//     );
+
+//     return project;
+//   }
+//   throw new AuthenticationError('You need to be logged in!');
+// },
+
+updateProject: async (parent, { ProjectId}, {title}, {description }) => {
+  // Find and update the matching class using the destructured args
+  return await Project.findOneAndUpdate(
+    { ProjectId }, 
+    { title },
+    { description },
+    // Return the newly updated object instead of the original
+    { new: true }
+  );
+}
+
+
 // with context/auth when we get there
 //     addProject: async (parent, { title, despcription }, context) => {
 //   if (context.user) 
@@ -94,4 +153,5 @@ const resolvers = {
 };
 
 module.exports = resolvers;
+
 

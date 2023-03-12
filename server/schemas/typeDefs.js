@@ -30,17 +30,10 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     addProject (title: String!, description: String!, projectAuthor: String!): Project
+    removeProject(ProjectId: ID!): Project
+    updateProject(id: ID!, title: String!, description: String!): Project
   }`
 ;
-
-
-
-
-
-
-
-
-
 
  module.exports = typeDefs;
 
