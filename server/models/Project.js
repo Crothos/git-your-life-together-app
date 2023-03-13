@@ -36,7 +36,7 @@ const projectSchema = new Schema({
             },
             completed: {
                 type: Boolean,
-                required: true,
+                required: false,
             },
             createdAt: {
                 type: Date,
