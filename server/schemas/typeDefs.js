@@ -30,8 +30,9 @@ type Step {
   }
   type Query {
     users: [User]
-    user(username: String!): User
+    user(userId: ID!): User
     project (projectId: ID!): Project
+    me: User
   }
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth

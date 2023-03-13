@@ -8,12 +8,18 @@ const resolvers = {
     users: async () => {
       return User.find().populate('projects')
     },
-    // Camelias new code
+    user: async (parent, { username }) => {
+      return User.findOne({ username }).populate('projects');
+    },
     project: async (parent, { projectId }) => {
       return Project.findOne({ _id: projectId }).populate('steps')
-
     },
-
+    me: async (parent, args, context) => {
+      if (context.user) {
+        return User.findOne({ _id: context.user._id }).populate('projects');
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
   },
 
   Mutation: {

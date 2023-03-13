@@ -48,3 +48,26 @@ query Users {
   }
 }
 `;
+
+
+export const QUERY_ME = gql`
+  query me {
+    me {
+      _id
+      username
+      email
+      projects {
+      title
+      _id
+      description
+      projectAuthor
+      steps {
+        _id
+        completed
+        createdAt
+        stepText
+      }
+    }
+  }
+}
+`;
