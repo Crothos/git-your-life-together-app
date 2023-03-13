@@ -23,6 +23,11 @@ const projectSchema = new Schema({
     },
     steps: [
         {
+            _id: {
+                type: String,
+                dropDups: true,
+                unique: true,
+            },
             stepText: {
                 type: String,
                 required: true,
