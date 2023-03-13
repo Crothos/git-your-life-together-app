@@ -16,10 +16,10 @@ export const QUERY_ME = gql`
       _id
       username
       email
-      thoughts {
+      projects {
         _id
-        thoughtText
-        thoughtAuthor
+        title
+        description
         createdAt
       }
     }
