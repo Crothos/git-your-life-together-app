@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 //import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Navbar from '../Navbar';
 
 const AskChatGPT = () => {
     const [prompt, setPrompt] = useState("");
@@ -21,6 +22,7 @@ const AskChatGPT = () => {
   
     return (
       <div>
+        <Navbar />
         <form onSubmit={handleSubmit}>
           <input
             type="text"

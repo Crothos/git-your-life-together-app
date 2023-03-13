@@ -1,7 +1,7 @@
 import React from 'react';
 //import { useLocation, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-
+import { Link } from 'react-router-dom';
 const Landing = () => {
     //const location = useLocation();
     //const navigate = useNavigate();
@@ -15,9 +15,9 @@ const Landing = () => {
                 </div>
 
                 <div className="row d-flex align-items-center justify-content-center">
-                    <a className="col-2" href="/" style={{ textDecoration: 'none', color: 'black' }}>
+                    <Link to= "/steps"><a className="col-2" style={{ textDecoration: 'none', color: 'black' }}>
                         <h5>Example Project 1</h5>
-                    </a>
+                    </a></Link>
                     <div className="progress col-3 mx-3 p-0" role="progressbar" aria-label="Example with label" aria-valuenow="50"
                         aria-valuemin="0" aria-valuemax="100">
                         <div className="progress-bar"
@@ -30,9 +30,9 @@ const Landing = () => {
                 </div>
 
                 <div className="row d-flex align-items-center justify-content-center mt-3">
-                    <a className="col-2" href="/" style={{ textDecoration: 'none', color: 'black' }}>
+                    <Link to= "/steps"><a className="col-2" style={{ textDecoration: 'none', color: 'black' }}>
                         <h5>Example Project 2</h5>
-                    </a>
+                    </a></Link>
                     <div className="progress col-3 mx-3 p-0" role="progressbar" aria-label="Example with label" aria-valuenow="30"
                         aria-valuemin="0" aria-valuemax="100">
                         <div className="progress-bar"
