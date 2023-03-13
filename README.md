@@ -2,7 +2,7 @@
 
 ## Description
 
-Git Your Life Together is an app that allows the user to reach a goal by breaking the path to achieving that goal into manageable steps. Users can input however many steps they determine are necessary and can interact with those steps in a number of ways (e.g., rearrange order, mark as in progress, mark as completed). If a user is unsure what steps are needed to reach a goal, they can input their query into ChatGPT, which will generate a list of steps that are required. From there, users can cut and paste the steps they wish to include and edit them as needed to implement thier own plan of action. Users can save and edit their personal goal pathways and can also search the database for similar goals that other users have mapped out as inspiration.
+Git Your Life Together is an app that allows the user to reach a goal by breaking the path to achieving that goal into manageable steps. Users can input however many steps they determine are necessary and can interact with those steps in a number of ways (e.g., rearrange order, mark as in progress, mark as completed). If a user is unsure what steps are needed to reach a goal, they can input their query into ChatGPT, which will generate a list of steps that are required. From there, users can cut and paste the steps they wish to include and edit them as needed to implement thier own plan of action. Users can save and edit their personal goal pathways and they can also search the database for similar goals that other users have mapped out as inspiration.
 
 <br>   
 
