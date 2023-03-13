@@ -1,7 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/GYLTlogo.png';
+import Auth from '../../utils/auth';
+
 const Navbar = () => {
+    const logout = (event) => {
+        event.preventDefault();
+        Auth.logout();
+    }
     return (
 
         <nav className="navbar">
@@ -12,12 +18,12 @@ const Navbar = () => {
 
                 <ul className="nav justify-content-end">
                     <li className="nav-item">
-                        <a className="nav-link active" aria-current="page" href="#">My Projects</a>
+                        <Link to="/landing"><a className="nav-link active" aria-current="page">My Projects</a></Link>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Ask Chat GPT</a>
+                        <Link to="/askchatgpt"><a className="nav-link">Ask Chat GPT</a></Link>
                     </li>
-                    <Link to="/"><button className="btn btn-main" type="button">Logout</button></Link>
+                    <Link to="/"><button className="btn btn-main" type="button" onClick={logout}>Logout</button></Link>
                 </ul>
             </div>
         </nav>
