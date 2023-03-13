@@ -21,7 +21,7 @@ const Navbar = () => {
                         <a className="nav-link active" aria-current="page" href="#">My Projects</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Ask Chat GPT</a>
+                        <Link to="/askchatgpt"><a className="nav-link" href="#">Ask Chat GPT</a></Link>
                     </li>
                     <Link to="/"><button className="btn btn-main" type="button" onClick={logout}>Logout</button></Link>
                 </ul>
