@@ -23,3 +23,36 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const ADD_PROJECT = gql`
+  mutation addProject ($title: String!, $description: String!, $projectAuthor: String!) {
+    addProject (title: $title, description: $description, projectAuthor: $projectAuthor) {
+      _id
+      title
+      description
+      projectAuthor
+      createdAt
+      steps {
+        _id
+        title
+        description
+      }
+    }
+  }
+`;
+
+export const ADD_STEP = gql`
+  mutation addStep($projectId: ID!, $stepText: String!, $completed: Boolean) {
+    addStep(projectId: $projectId, stepText:$stepText, completed: $completed) {
+      _id
+      thoughtText
+      thoughtAuthor
+      createdAt
+      comments {
+        _id
+        commentText
+        createdAt
+      }
+    }
+  }
+`;
