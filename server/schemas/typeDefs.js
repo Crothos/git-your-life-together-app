@@ -20,7 +20,7 @@ const typeDefs = gql`
 type Step {
   _id: ID
   stepText: String
-  completed: String
+  completed: Boolean
   createdAt: String
 }
 
@@ -39,7 +39,7 @@ type Step {
     addProject (title: String!, description: String!, projectAuthor: String!): Project
     removeProject(projectId: ID!): Project
     updateProject(projectId: ID!, title: String!, description: String!): Project
-    addStep(projectId: ID!, stepText: String!, completed: Boolean): Project
+    addStep (projectId: ID!, stepText: String!, completed: Boolean!): Project
     deleteStep (projectId: ID!, stepId: ID!): Project 
     updateStep (projectId: ID!, stepId: ID!, stepText: String!, completed: Boolean!): Project
   }`
