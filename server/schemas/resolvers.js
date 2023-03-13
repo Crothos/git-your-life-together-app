@@ -6,11 +6,11 @@ const { signToken } = require('../utils/auth');
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find()
+      return User.find().populate('projects')
     },
     // Camelias new code
-    project: async(parent, { projectId }) => {
-      return Project.findOne({ _id: projectId })
+    project: async (parent, { projectId }) => {
+      return Project.findOne({ _id: projectId }).populate('steps')
 
     },
 
@@ -42,57 +42,121 @@ const resolvers = {
     },
 
 
-// camelias code
-// with context/auth when we get there
-        addProject: async (parent, { title, description }, context) => {
-  if (context.user) 
-  { const project = await Project.create({
-     title, 
-     description,
-     projectAuthor: context.user.username,
-   });
-
-   await User.findOneAndUpdate(
-     {_Id: context.user._id},
-     { $addToSet:  {projects: project._id }}
-   );
-   return project;
- }
- throw new AuthenticationError('You need to be logged in!');
-},
-
-
-// add context to this
-removeProject: async (parent, { ProjectId },{user}) => {
- // if (context.user) {
-        const project = await Project.findOneAndDelete({
-          _id: ProjectId,
-        //  projectAuthor: context.user.username,
+    // working now
+    addProject: async (parent, { title, description }, context) => {
+      if (context.user) {
+        const project = await Project.create({
+          title,
+          description,
+          projectAuthor: context.user.username,
         });
-    
-        // await User.findOneAndUpdate(
-        //   { _id: context.user._id },
-        //   { $pull: { projects: project._id } }
-        // );
-    
+
+        await User.findOneAndUpdate(
+          { _Id: context.user._id },
+          { $addToSet: { projects: project._id } }
+        );
         return project;
-    //  }
-     // throw new AuthenticationError('You need to be logged in!');
+      }
+      throw new AuthenticationError('You need to be logged in!');
     },
 
-//not fully working yet
-updateProject: async (parent, { ProjectId}, {title}, {description }) => {
-  // Find and update the matching class using the destructured args
-  return await Project.findOneAndUpdate(
-    { ProjectId }, 
-    { title },
-    { description },
-    // Return the newly updated object instead of the original
-    { new: true }
-  );
-}
+
+    // working now
+    removeProject: async (parent, { projectId }, context) => {
+      if (context.user) {
+        const project = await Project.findOneAndDelete({
+          _id: projectId,
+          projectAuthor: context.user.username,
+        });
+
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { projects: projectId } },
+
+        );
+
+        return project;
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
 
 
+    // working with context/auth
+    updateProject: async (parent, { projectId, title, description }, context) => {
+      if (context.user) {
+        const project = await Project.findByIdAndUpdate(projectId, {
+          title: title,
+          description: description,
+        });
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $set: { title, description } },
+          { new: true }
+        );
+        return project;
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
+
+    // add step working as well now
+    addStep: async (parent, { projectId, completed, stepText }, context) => {
+      if (context.user) {
+        return Project.findOneAndUpdate(
+          { _id: projectId },
+          {
+            $addToSet: {
+              steps: { stepText, completed, stepAuthor: context.user.username },
+            },
+          },
+          {
+            new: true,
+          }
+        );
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
+
+    // remove a step
+    deleteStep: async (parent, { projectId, stepId }, context) => {
+      if (context.user) {
+        return Project.findOneAndUpdate(
+          { _id: projectId },
+          {
+            $pull: {
+              steps: {
+                _id: stepId,
+              },
+            },
+          },
+          { new: true }
+        );
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
+
+
+    // update step
+    updateStep: async (parent, { projectId, stepId, stepText, completed }, context) => {
+      if (context.user) {
+        const project = await Project.findOneAndUpdate(
+          { _id: projectId },
+          { 
+           
+            $addToSet: {
+              steps: { 
+                _id: stepId,
+             stepText: stepText,
+           completed: completed,
+              },
+            },
+          },
+          { runValidators: true, new: true }
+        );
+return project;
+       
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
   },
 };
 
