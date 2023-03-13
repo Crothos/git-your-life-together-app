@@ -121,6 +121,12 @@ a {
   .footer-clean .item.social>a {
     margin-top: 10px;
   }
+
+  .footer-clean {
+
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .footer-clean .copyright {

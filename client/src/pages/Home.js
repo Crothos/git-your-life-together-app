@@ -19,7 +19,7 @@ const Home = () => {
       <nav className="navbar">
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
-            <img src={logo} alt="Logo" height="50rem" className="d-inline-block" />
+            <img className="img-fluid" src={logo} alt="Logo" height="50rem" className="d-inline-block" />
           </a>
           <ul className="nav justify-content-end">
             {/* <li className="nav-item">
@@ -43,8 +43,8 @@ const Home = () => {
               <Link to="/signup"><button className="btn btn-main mt-4" type="button">Sign Up Today</button></Link>
             </div>
           </div>
-          <div className="col-md-6">
-            <img src={happyGuy} height="500rem" className="animate__animated animate__fadeIn" />
+          <div className="img-fluid col-md-6">
+            <img src={happyGuy} width="400rem" className="animate__animated animate__fadeIn" />
           </div>
         </div>
       </div>
