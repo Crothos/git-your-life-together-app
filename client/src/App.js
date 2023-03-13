@@ -19,6 +19,7 @@ import Steps from './pages/Steps';
 
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
+import AskChatGPT from './components/AskChatGPT';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
