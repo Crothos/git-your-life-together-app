@@ -48,8 +48,8 @@ const resolvers = {
     },
 
 
-    // working now
-    addProject: async (parent, { title, description }, context) => {
+    // need to make sure its the write author
+    addProject: async (parent, { userId, title, description }, context) => {
       if (context.user) {
         const project = await Project.create({
           title,
@@ -58,7 +58,8 @@ const resolvers = {
         });
 
         await User.findOneAndUpdate(
-          { _Id: context.user._id },
+          { _id: userId },
+          // { _Id: context.user._id },
           { $addToSet: { projects: project._id } }
         );
         return project;
