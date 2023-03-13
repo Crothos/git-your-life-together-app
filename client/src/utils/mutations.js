@@ -48,9 +48,10 @@ export const ADD_STEP = gql`
       thoughtText
       thoughtAuthor
       createdAt
-      comments {
+      step {
         _id
-        commentText
+       title
+       description
         createdAt
       }
     }
