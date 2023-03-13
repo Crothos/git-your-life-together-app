@@ -9,35 +9,20 @@ const Landing = () => {
         <div className="container-fluid">
             <Navbar />
 
-            <div className="container" style={{ backgroundColor: 'white', height: '700px' }}>
+            <div className="container mt-3" style={{ backgroundColor: 'white', height: '45rem' }}>
                 <div className="row p-5">
                     <h2>Projects</h2>
                 </div>
 
                 <div className="row d-flex align-items-center justify-content-center">
-                    <Link to= "/steps"><a className="col-2" style={{ textDecoration: 'none', color: 'black' }}>
+                    <Link to="/steps" className="col-2" style={{ textDecoration: 'none', color: 'black' }}>
                         <h5>Example Project 1</h5>
-                    </a></Link>
+                    </Link>
                     <div className="progress col-3 mx-3 p-0" role="progressbar" aria-label="Example with label" aria-valuenow="50"
                         aria-valuemin="0" aria-valuemax="100">
                         <div className="progress-bar"
                             style={{ width: '50%', backgroundImage: 'linear-gradient(to right, #3120E0,  #21E1E1)' }}>
                             50%
-                        </div>
-                    </div>
-                    <button className="btn btn-outline col-1 mx-2">Edit</button>
-                    <button className="btn btn-delete col-1 mx-2">Delete</button>
-                </div>
-
-                <div className="row d-flex align-items-center justify-content-center mt-3">
-                    <Link to= "/steps"><a className="col-2" style={{ textDecoration: 'none', color: 'black' }}>
-                        <h5>Example Project 2</h5>
-                    </a></Link>
-                    <div className="progress col-3 mx-3 p-0" role="progressbar" aria-label="Example with label" aria-valuenow="30"
-                        aria-valuemin="0" aria-valuemax="100">
-                        <div className="progress-bar"
-                            style={{ width: '30%', backgroundImage: 'linear-gradient(to right, #3120E0,  #21E1E1)' }}>
-                            30%
                         </div>
                     </div>
                     <button className="btn btn-outline col-1 mx-2">Edit</button>
