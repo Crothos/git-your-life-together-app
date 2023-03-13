@@ -19,7 +19,7 @@ const Home = () => {
       <nav className="navbar">
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
-            <img className="img-fluid" src={logo} alt="Logo" height="50rem" className="d-inline-block" />
+            <img className="img-fluid d-inline-block" src={logo} alt="Logo" height="50rem"/>
           </a>
           <ul className="nav justify-content-end">
             {/* <li className="nav-item">
