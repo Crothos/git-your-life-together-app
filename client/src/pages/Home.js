@@ -18,8 +18,8 @@ const Home = () => {
 
       <nav className="navbar">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
-            <img src={logo} alt="Logo" height="50" className="d-inline-block" />
+          <a className="navbar-brand" href="/">
+            <img src={logo} alt="Logo" height="50rem" className="d-inline-block" />
           </a>
           <ul className="nav justify-content-end">
             {/* <li className="nav-item">
@@ -34,7 +34,7 @@ const Home = () => {
         </div>
       </nav>
 
-      <div className="container">
+      <div className="container" style={{ height: '45rem' }}>
         <div className="row m-5">
           <div className="col-md-6 d-flex flex-wrap justify-content-center align-content-center">
             <div>
@@ -44,7 +44,7 @@ const Home = () => {
             </div>
           </div>
           <div className="col-md-6">
-            <img src={happyGuy} height="600px" className="animate__animated animate__fadeIn" />
+            <img src={happyGuy} height="500rem" className="animate__animated animate__fadeIn" />
           </div>
         </div>
       </div>

@@ -6,7 +6,7 @@ const Steps = () => {
         <div className="container-fluid">
             <Navbar />
 
-            <div className="container" style={{ backgroundColor: 'white', height: '700px' }}>
+            <div className="container mt-3" style={{ backgroundColor: 'white', height: '45rem' }}>
                 <div className="row p-5">
                     <h2 id="projectName">Project Name: Steps</h2>
                 </div>
@@ -15,7 +15,7 @@ const Steps = () => {
                     <h5 className="col-4">Buy instrument</h5>
                     <button className="btn btn-outline col-1 mx-2" type="button" data-bs-toggle="modal"
                         data-bs-target="#exampleModal2">Edit</button>
-                    <button className="btn btn-delete col-1 mx-2">Completed</button>
+                    <button className="btn btn-delete col-1 mx-2 p-2">Completed</button>
                 </div>
 
                 {/* Modal */}
@@ -53,10 +53,10 @@ const Steps = () => {
                 </div>
 
                 <div className="row d-flex align-items-center justify-content-center mt-3">
-                    <h5 className="col-4">Search for free classNamees</h5>
+                    <h5 className="col-4">Search for free classes</h5>
 
                     <button className="btn btn-outline col-1 mx-2">Edit</button>
-                    <button className="btn btn-delete col-1 mx-2">Completed</button>
+                    <button className="btn btn-delete col-1 mx-2 p-2">Completed</button>
                 </div>
 
                 <div className="row d-flex align-items-center justify-content-center mt-5">
@@ -99,6 +99,21 @@ const Steps = () => {
                         </div>
                     </div>
                 </div>
+
+                <div>
+                    <div className="row p-5 mt-5 text-center">
+                        <h5 className="col-12 mb-3" id="helpChatGPT">Feeling stuck? Ask Chat GPT for help...</h5>
+                        <textarea className="form-control col-12 mb-3" aria-label="With textarea"></textarea>
+
+                        <button type="submit" className="col-12 btn btn-main">
+                            Ask
+                        </button>
+                    </div>
+                    {/* <br />
+          <p>{response}</p> */}
+
+                </div>
+
             </div>
         </div>
     );
