@@ -71,6 +71,10 @@ function App() {
                 path="/steps"
                 element={<Steps />}
               />
+              <Route
+                path="/askchatgpt"
+                element={<AskChatGPT />}
+                />
             </Routes>
           </div>
           <Footer />
