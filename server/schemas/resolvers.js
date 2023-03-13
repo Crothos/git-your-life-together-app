@@ -114,16 +114,49 @@ const resolvers = {
         );
       }
       throw new AuthenticationError('You need to be logged in!');
-
-
     },
 
-  
+    // remove a step
+    deleteStep: async (parent, { projectId, stepId }, context) => {
+      if (context.user) {
+        return Project.findOneAndUpdate(
+          { _id: projectId },
+          {
+            $pull: {
+              steps: {
+                _id: stepId,
+              },
+            },
+          },
+          { new: true }
+        );
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
 
 
-
-
-
+    // update step
+    updateStep: async (parent, { projectId, stepId, stepText, completed }, context) => {
+      if (context.user) {
+        const project = await Project.findOneAndUpdate(
+          { _id: projectId },
+          { 
+           
+            $addToSet: {
+              steps: { 
+                _id: stepId,
+             stepText: stepText,
+           completed: completed,
+              },
+            },
+          },
+          { runValidators: true, new: true }
+        );
+return project;
+       
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
   },
 };
 
