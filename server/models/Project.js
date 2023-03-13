@@ -35,7 +35,7 @@ const projectSchema = new Schema({
                 maxlength: 280, 
             },
             completed: {
-                type: String,
+                type: Boolean,
                 required: true,
             },
             createdAt: {
