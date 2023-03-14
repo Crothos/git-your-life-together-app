@@ -1,46 +1,39 @@
-import React, { useState } from 'react';
-//import { useLocation, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import React, { useState } from "react";
+import axios from "axios";
 
-const AskChatGPT = () => {
-    const [prompt, setPrompt] = useState("");
-    const [response, setResponse] = useState("");
-  
-    const handleSubmit = (e) => {
-      e.preventDefault();
-  
-      axios
-        .post("/chat", { prompt })
-        .then((res) => {
-          setResponse(res.data);
-        })
-        .catch((err) => {
-          console.error(err);
-        });
-    };
-  
-    return (
-      <div>
-        <form onSubmit={handleSubmit}>
+function AskChatGPT() {
+  const [prompt, setPrompt] = useState("");
+  const [response, setResponse] = useState("");
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const data = { prompt };
+
+    try {
+      const response = await axios.post("/chat", data);
+      setResponse(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <label>
+          How can we help you?:
           <input
             type="text"
             value={prompt}
-            onChange={(e) => setPrompt(e.target.value)}
+            onChange={(event) => setPrompt(event.target.value)}
           />
-          <button type="submit">Submit</button>
-        </form>
-        <p>{response}</p>
-      </div>
-    );
-
-//   //const location = useLocation();
-//   //const navigate = useNavigate();
-//   return (
-//     <div>
-//     <h1>Need help coming up with steps? Ask ChatGPT!</h1>
-//     <div id="chat-container"></div>
-//     </div>
-//   );
-};
+        </label>
+        <button type="submit">Submit</button>
+      </form>
+      {response && <p>Response: {response}</p>}
+    </div>
+  );
+}
 
 export default AskChatGPT;
