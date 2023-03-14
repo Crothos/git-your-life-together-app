@@ -18,7 +18,7 @@ import Steps from './pages/Steps';
 // import Profile from './pages/Profile';
 
 import Footer from './components/Footer';
-import Navbar from './components/Navbar';
+// import Navbar from './components/Navbar';
 import AskChatGPT from './components/AskChatGPT';
 
 // Construct our main GraphQL API endpoint
@@ -75,7 +75,7 @@ function App() {
               <Route
                 path="/askchatgpt"
                 element={<AskChatGPT />}
-                />
+              />
             </Routes>
           </div>
           <Footer />

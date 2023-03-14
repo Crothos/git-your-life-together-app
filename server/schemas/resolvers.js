@@ -8,12 +8,18 @@ const resolvers = {
     users: async () => {
       return User.find().populate('projects')
     },
-    // Camelias new code
+    user: async (parent, { username }) => {
+      return User.findOne({ username }).populate('projects');
+    },
     project: async (parent, { projectId }) => {
       return Project.findOne({ _id: projectId }).populate('steps')
-
     },
-
+    me: async (parent, args, context) => {
+      if (context.user) {
+        return User.findOne({ _id: context.user._id }).populate('projects');
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
   },
 
   Mutation: {
@@ -42,8 +48,8 @@ const resolvers = {
     },
 
 
-    // working now
-    addProject: async (parent, { title, description }, context) => {
+    // need to make sure its the write author
+    addProject: async (parent, { userId, title, description }, context) => {
       if (context.user) {
         const project = await Project.create({
           title,
@@ -52,7 +58,8 @@ const resolvers = {
         });
 
         await User.findOneAndUpdate(
-          { _Id: context.user._id },
+          { _id: userId },
+          // { _Id: context.user._id },
           { $addToSet: { projects: project._id } }
         );
         return project;
