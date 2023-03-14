@@ -23,6 +23,11 @@ const projectSchema = new Schema({
     },
     steps: [
         {
+            _id: {
+                type: String,
+                dropDups: true,
+                unique: true,
+            },
             stepText: {
                 type: String,
                 required: true,
@@ -30,8 +35,8 @@ const projectSchema = new Schema({
                 maxlength: 280, 
             },
             completed: {
-                type: String,
-                required: true,
+                type: Boolean,
+                required: false,
             },
             createdAt: {
                 type: Date,

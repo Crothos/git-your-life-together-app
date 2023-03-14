@@ -1,5 +1,4 @@
 import React from 'react';
-import { useQuery } from '@apollo/client';
 import { Link } from 'react-router-dom';
 import logo from '../assets/GYLTlogo.png';
 import happyGuy from '../assets/illustration1.png';
@@ -19,7 +18,7 @@ const Home = () => {
       <nav className="navbar">
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
-            <img className="img-fluid" src={logo} alt="Logo" height="50rem" className="d-inline-block" />
+            <img className="d-inline-block animate__animated animate__rotateIn" src={logo} alt="Logo" height="50rem" />
           </a>
           <ul className="nav justify-content-end">
             {/* <li className="nav-item">
