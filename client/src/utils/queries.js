@@ -25,3 +25,14 @@ export const QUERY_ME = gql`
     }
   }
 `;
+
+export const QUERY_PROJECTS = gql`
+  query gprojects {
+   projects {
+      _id
+      title
+      description
+      createdAt
+    }
+  }
+`;

@@ -20,6 +20,7 @@ import Steps from './pages/Steps';
 import Footer from './components/Footer';
 // import Navbar from './components/Navbar';
 import AskChatGPT from './components/AskChatGPT';
+import Profile from './pages/Profile';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -67,6 +68,10 @@ function App() {
               <Route
                 path="/landing"
                 element={<Landing />}
+              />
+              <Route
+                path="/profile"
+                element={<Profile />}
               />
               <Route
                 path="/steps"
