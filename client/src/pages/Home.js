@@ -1,5 +1,4 @@
 import React from 'react';
-import { useQuery } from '@apollo/client';
 import { Link } from 'react-router-dom';
 import logo from '../assets/GYLTlogo.png';
 import happyGuy from '../assets/illustration1.png';
