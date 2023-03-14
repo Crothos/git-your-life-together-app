@@ -32,8 +32,8 @@ export const ADD_PROJECT = gql`
     projectAuthor
     title
     steps {
-      stepText
-      createdAt
+      title
+      desctiption
       completed
       _id
     }
@@ -49,8 +49,8 @@ mutation Mutation($projectId: ID!, $title: String!, $description: String!) {
     projectAuthor
     title
     steps {
-      stepText
-      createdAt
+      title
+      description
       completed
       _id
     }
@@ -84,9 +84,10 @@ export const ADD_STEP = gql`
       thoughtText
       thoughtAuthor
       createdAt
-      comments {
+      step {
         _id
-        commentText
+       title
+       description
         createdAt
       }
     }
