@@ -70,10 +70,6 @@ function App() {
                 element={<Landing />}
               />
               <Route
-                path="/profile"
-                element={<Profile />}
-              />
-              <Route
                 path="/steps"
                 element={<Steps />}
               />

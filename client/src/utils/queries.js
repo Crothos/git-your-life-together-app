@@ -27,7 +27,7 @@ export const QUERY_ME = gql`
 `;
 
 export const QUERY_PROJECTS = gql`
-  query gprojects {
+  query getprojects {
    projects {
       _id
       title
