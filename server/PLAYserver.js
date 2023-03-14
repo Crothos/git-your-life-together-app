@@ -3,7 +3,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 require("dotenv").config();
 
-console.log(process.env);
+// console.log(process.env);
 
 const { Configuration, OpenAIApi } = require("openai");
 
@@ -20,8 +20,9 @@ app.post("/chat", async (req, res) => {
   const { prompt } = req.body;
 
   const completion = await openai.createCompletion({
-    model: "text-davinci-002",
+    model: "text-davinci-003",
     prompt: prompt,
+    max_tokens: 500,
   });
   res.send(completion.data.choices[0].text);
 });
