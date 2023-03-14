@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 //import { useLocation, useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import noProject from '../../assets/noProjects.png';
+import ProjectForm from '../ProjectForm';
 
 const ProjectsList = ({
   projects,
@@ -11,7 +12,7 @@ const ProjectsList = ({
 }) => {
   if (!projects.length) {
     return (
-      <div className="container mt-3" style={{ backgroundColor: 'white', height: '45rem' }}>
+      <div className="container mt-3" style={{ backgroundColor: 'white', height: '100rem' }}>
         <div className="row p-5 text-center">
           <h2>No Projects yet!</h2>
         </div>
@@ -22,8 +23,10 @@ const ProjectsList = ({
           <img className="" src={noProject} alt="Logo" height="500rem" />
         </div>
 
+        <ProjectForm />
+
         {/* Modal */}
-        <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        {/* <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div className="modal-dialog modal-dialog-centered">
             <div className="modal-content">
               <div className="modal-header">
@@ -61,7 +64,7 @@ const ProjectsList = ({
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>)
   }
   return (
