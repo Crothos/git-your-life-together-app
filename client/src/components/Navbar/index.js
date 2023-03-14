@@ -12,7 +12,7 @@ const Navbar = () => {
 
         <nav className="navbar">
             <div className="container-fluid">
-                <a className="navbar-brand" href="/landing">
+                <a className="navbar-brand" href="/">
                     <img src={logo} alt="Logo" height="50" className="d-inline-block" />
                 </a>
 
