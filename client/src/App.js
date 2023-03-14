@@ -14,12 +14,9 @@ import Login from './pages/Login';
 import Landing from './pages/Landing';
 import Steps from './pages/Steps';
 
-// import SingleThought from './pages/SingleThought';
-// import Profile from './pages/Profile';
-
 import Footer from './components/Footer';
-// import Navbar from './components/Navbar';
 import AskChatGPT from './components/AskChatGPT';
+import Profile from './pages/Profile';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({

@@ -18,7 +18,7 @@ const Home = () => {
       <nav className="navbar">
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
-            <img className="img-fluid d-inline-block" src={logo} alt="Logo" height="50rem"/>
+            <img className="d-inline-block animate__animated animate__rotateIn" src={logo} alt="Logo" height="50rem" />
           </a>
           <ul className="nav justify-content-end">
             {/* <li className="nav-item">

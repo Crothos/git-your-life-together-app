@@ -31,6 +31,7 @@ type Step {
   type Query {
     users: [User]
     user(userId: ID!): User
+    projects(username: String): [Project]
     project (projectId: ID!): Project
     me: User
   }
